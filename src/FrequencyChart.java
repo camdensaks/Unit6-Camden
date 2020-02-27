@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class FrequencyChart {
     //instance variables
     private int[] list;
-    private int temp;
     private String chart = "";
 
 
