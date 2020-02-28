@@ -9,6 +9,7 @@ public class ArrayListTester {
         for (int i = 0; i < list.size(); i++ ){
             if(list.get(i) == 0){
                list.remove(i);
+               i--;
             }
         }
     }
@@ -23,16 +24,33 @@ public class ArrayListTester {
 
 
     public static int findPosition(int keyValue, ArrayList <Integer> list){
+        int index = -1;
      for(int i = 0; i < list.size(); i++){
          if(list.get(i) == keyValue){
-             return i;
+             index = i;
          }
      }
-     return -1;
+     return index;
     }
 
-    public static String parseIntoArrayList(String input){
-    
+    public static ArrayList<String> parseIntoArrayList(String input){
+        ArrayList<String> list = new ArrayList<>();
+        for(int i = 0; i < input.length(); i++) {
+            list.add(input.substring(i, i + 1));
+        }
+        return list;
+    }
+
+    public static String findMin(ArrayList<Person> list) {
+        Person min = list.get(0);
+        int minAge = list.get(0).getAge();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getAge() < minAge) {
+                minAge = list.get(i).getAge();
+                min = list.get(i);
+            }
+        }
+        return min.getName();
     }
 
     public static void main(String[] args){
